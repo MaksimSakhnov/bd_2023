@@ -1,8 +1,8 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { VendorEntity } from '@entities/vendor/vendor.entity';
+import { ProductInWarehouseEntity } from '@entities/productInWarehouse/productInWarehouse.entity';
 
-@Entity('manufacturers')
-export class ManufacturerEntity {
+@Entity('warehouses')
+export class WarehouseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -15,6 +15,10 @@ export class ManufacturerEntity {
   @Column({ type: 'varchar', nullable: false })
   phone: string;
 
-  @OneToMany(() => VendorEntity, (vendor) => vendor.manufacturer)
-  vendors: VendorEntity[];
+  @OneToMany(
+    () => ProductInWarehouseEntity,
+    (productInWs) => productInWs.warehouse,
+    {},
+  )
+  products_in_warehouse: ProductInWarehouseEntity[];
 }

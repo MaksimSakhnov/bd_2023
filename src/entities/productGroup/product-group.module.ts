@@ -1,12 +1,9 @@
-import {Module} from '@nestjs/common';
-import {TypeOrmModule} from "@nestjs/typeorm";
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import {ProductGroupEntity} from "@entities/productGroup/product-group.entity";
+import { ProductGroupEntity } from '@entities/productGroup/product-group.entity';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([ProductGroupEntity])
-    ]
+  imports: [TypeOrmModule.forFeature([ProductGroupEntity])],
 })
-export class ProductGroupModule {
-}
+export class ProductGroupModule {}

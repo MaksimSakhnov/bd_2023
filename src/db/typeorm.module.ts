@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule as NestTypeOrmModule } from '@nestjs/typeorm';
-import * as process from "process";
+import * as process from 'process';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
-console.log(process.env)
+console.log(process.env);
+
 @Module({
   imports: [
     NestTypeOrmModule.forRoot({
