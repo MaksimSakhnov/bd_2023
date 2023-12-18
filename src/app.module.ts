@@ -10,6 +10,9 @@ import { WorkerModule } from '@entities/worker/worker.module';
 import { BillModule } from '@entities/bill/bill.module';
 import { IncomingProductModule } from '@entities/incomingProduct/incoming-product.module';
 import { ProductInWarehouseModule } from '@entities/productInWarehouse/productInWarehouse.module';
+import { TransferModule } from '@entities/transfer/transfer.module';
+import { OutgoingProductModule } from '@entities/outgoingProduct/outgoing-product.module';
+import { VendorModule } from '@entities/vendor/vendor.module';
 
 @Module({
   imports: [
@@ -18,12 +21,15 @@ import { ProductInWarehouseModule } from '@entities/productInWarehouse/productIn
     StorageMethodModule,
     ProductGroupModule,
     ManufacturerModule,
+    VendorModule,
     ProductModule,
     WarehouseModule,
     WorkerModule,
     BillModule,
     IncomingProductModule,
     ProductInWarehouseModule,
+    TransferModule,
+    OutgoingProductModule,
   ],
 })
 export class AppModule {}

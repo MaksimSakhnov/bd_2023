@@ -3,11 +3,14 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { WarehouseEntity } from '@entities/warehouse/warehouse.entity';
 import { IncomingProductEntity } from '@entities/incomingProduct/incoming-product.entity';
+import { TransferEntity } from '@entities/transfer/transfer.entity';
+import { OutgoingProductEntity } from '@entities/outgoingProduct/outgoing-product.entity';
 
 @Entity('products_in_warehouse')
 export class ProductInWarehouseEntity {
@@ -35,4 +38,13 @@ export class ProductInWarehouseEntity {
   )
   @JoinColumn({ name: 'incoming_products_id' })
   incoming_product: IncomingProductEntity;
+
+  @OneToMany(() => TransferEntity, (transfer) => transfer.product_in_warehouse)
+  transfers: TransferEntity[];
+
+  @OneToMany(
+    () => OutgoingProductEntity,
+    (oProduct) => oProduct.product_in_warehouse,
+  )
+  outgoing_products: OutgoingProductEntity[];
 }
