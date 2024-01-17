@@ -14,7 +14,7 @@ require('dotenv').config();
       username: String(process.env.POSTGRES_USERNAME),
       password: String(process.env.POSTGRES_PASSWORD),
       database: process.env.POSTGRES_DATABASE,
-      entities: ['dist/entities/**/*.entity.js'],
+      entities: ['dist/modules/**/*.entity.js'],
       synchronize: true,
       // migrations: [ 'dist/db/migrations/**/*.js' ],
       // cli: { migrationsDir: 'src/db/migrations' },
