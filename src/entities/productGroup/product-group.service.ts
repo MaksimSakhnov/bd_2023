@@ -23,6 +23,7 @@ export class ProductGroupService {
   }
 
   async create(dto: ProductGroupDto) {
+    console.log(dto);
     const e = await this.repo.save(dto.toEntity());
     return ProductGroupDto.fromEntity(e);
   }

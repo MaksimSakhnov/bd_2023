@@ -17,6 +17,7 @@ export class ProductGroupEntity {
   @ManyToOne(() => StorageMethodEntity, undefined, {
     nullable: false,
     persistence: false,
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'storage_method_id' })
   storage_method: StorageMethodEntity;

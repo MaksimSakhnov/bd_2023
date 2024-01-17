@@ -21,6 +21,7 @@ export class WorkerEntity {
   @ManyToOne(() => WarehouseEntity, undefined, {
     nullable: false,
     persistence: false,
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'warehouse_id' })
   warehouse: WarehouseEntity;

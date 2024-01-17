@@ -11,7 +11,7 @@ export class ProductDto implements Readonly<ProductDto> {
   id: number;
 
   @ApiProperty({ required: true })
-  name: string | undefined;
+  name: string;
 
   @ApiProperty({ required: true })
   @IsNumber()
@@ -39,6 +39,7 @@ export class ProductDto implements Readonly<ProductDto> {
     it.product_group_id = dto.product_group_id ?? 0;
     it.product_group = dto.product_group ?? undefined;
     it.manufacturer = dto.manufacturer ?? undefined;
+    it.manufacturer_id = dto.manufacturer_id ?? 0;
     return it;
   }
 
@@ -48,6 +49,7 @@ export class ProductDto implements Readonly<ProductDto> {
       name: entity.name,
       cost: entity.cost,
       product_group_id: entity.product_group_id,
+      manufacturer_id: entity.manufacturer_id,
       // @ts-ignore
       product_group: entity.product_group
         ? ProductGroupDto.fromEntity(entity.product_group)
@@ -62,6 +64,7 @@ export class ProductDto implements Readonly<ProductDto> {
   public toEntity() {
     const it = new ProductEntity();
     it.id = this.id;
+    it.name = this.name;
     it.cost = this.cost;
     it.manufacturer_id = this.manufacturer_id;
     it.product_group_id = this.product_group_id;
